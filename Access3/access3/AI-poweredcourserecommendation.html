@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course Recommendations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fb;
+            text-align: center;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .search-bar {
+            margin: 20px auto;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: white;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+        .search-bar button {
+            background: #4a6bea;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .course {
+            width: 250px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            text-align: center;
+        }
+        .course img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .upload-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .upload-section input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div></nav>
+    <h2>Find the Best Courses for Your Needs</h2>
+    <div class="search-bar">
+        <input type="text" id="disability" placeholder="Enter your disability...">
+        <button onclick="fetchCourses()">Search</button>
+    </div>
+    <div class="course-list" id="courseList"></div>
+    <div class="upload-section">
+        <p><strong>After completing your course, you can upload your certificate below to earn an NFT</strong></p>
+        <input type="file" id="certificateUpload" accept="application/pdf">
+        <button onclick="uploadCertificate()">Upload Certificate</button>
+    </div>
+    <script>
+        function fetchCourses() {
+            let disability = document.getElementById("disability").value;
+            let courseList = document.getElementById("courseList");
+            courseList.innerHTML = "";
+            
+            // Example AI-powered recommendations (static for now)
+            let courses = [
+                {title: "Accessible Web Development", img: "course1.jpg", link: "#", desc: "Learn to create accessible websites."},
+                {title: "Remote Job Readiness", img: "course2.jpg", link: "#", desc: "Prepare for remote work with assistive tech."},
+                {title: "AI in Assistive Tech", img: "course3.jpg", link: "#", desc: "Use AI to enhance accessibility."}
+            ];
+            
+            courses.forEach(course => {
+                let courseDiv = document.createElement("div");
+                courseDiv.classList.add("course");
+                courseDiv.innerHTML = `
+                    <img src="${course.img}" alt="${course.title}">
+                    <p><a href="${course.link}"><strong>${course.title}</strong></a></p>
+                    <p>${course.desc}</p>
+                `;
+                courseList.appendChild(courseDiv);
+            });
+        }
+        
+        function uploadCertificate() {
+            let fileInput = document.getElementById("certificateUpload");
+            if (fileInput.files.length > 0) {
+                alert("Certificate uploaded successfully!");
+            } else {
+                alert("Please select a certificate file to upload.");
+            }
+        }
+    </script>
+</body>
+</html>

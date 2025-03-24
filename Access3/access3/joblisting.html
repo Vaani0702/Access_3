@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .container {
+            margin-top: 100px;
+            width: 80%;
+        }
+        .job-listing {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .job-listing h3 {
+            color: #4a6bea;
+        }
+        .job-listing p {
+            margin: 5px 0;
+        }
+        .apply-btn {
+            background: #4a6bea;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .apply-btn:hover {
+            background: #7e57c2;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+        </nav>
+    <div class="container">
+        <h2>Available Jobs</h2>
+        <div class="job-listing">
+            <h3>Software Engineer</h3>
+            <p><strong>Skills:</strong> JavaScript, React, Node.js</p>
+            <p><strong>Accessibility:</strong> Remote, Flexible Hours</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+        <div class="job-listing">
+            <h3>Graphic Designer</h3>
+            <p><strong>Skills:</strong> Photoshop, Illustrator, UI/UX</p>
+            <p><strong>Accessibility:</strong> Remote, Part-time</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "name": "Web Development Certificate",
+    "symbol": "WDC",
+    "description": "NFT Certificate for completing the Web Development Course.",
+    "image": "https://gateway.pinata.cloud/ipfs/bafkreihruskb5i4mw2mlicxyy4vkefrr2aiwjusdu4ja36a4rnngd7xucm",
+    "attributes": [
+      { "trait_type": "Course", "value": "Web Development" },
+      { "trait_type": "Platform", "value": "Your Platform Name" }
+    ]
+  }
+  

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empower Platform</title>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.2.7/tailwind.min.css"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white shadow p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Empower Platform</h1>
+            <button id="connectButton" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Connect Wallet</button>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="flex-grow flex flex-col items-center justify-center text-center p-8">
+            <h2 class="text-4xl font-extrabold mb-4">Empowering Disabled Individuals with Skills</h2>
+            <p class="text-lg text-gray-600 mb-8">Unlock opportunities with NFT certificates and transparent payments.</p>
+            <div class="space-x-4">
+                <div class="bg-white shadow-lg p-4 rounded-lg inline-block">
+                    <h3 class="text-xl font-semibold">Courses Completed</h3>
+                    <p class="text-2xl font-bold">12</p>
+                </div>
+                <div class="bg-white shadow-lg p-4 rounded-lg inline-block">
+                    <h3 class="text-xl font-semibold">Certificates Minted</h3>
+                    <p class="text-2xl font-bold">8</p>
+                </div>
+            </div>
+            <button class="mt-8 bg-green-500 text-white px-6 py-3 rounded-lg">Explore Courses</button>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white p-4 text-center text-gray-600">
+            &copy; 2025 Empower Platform. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        const connectButton = document.getElementById('connectButton');
+
+        async function connectWallet() {
+            if (window.solana && window.solana.isPhantom) {
+                try {
+                    const response = await window.solana.connect();
+                    alert(`Connected: ${response.publicKey.toString()}`);
+                } catch (err) {
+                    alert('Wallet connection failed!');
+                }
+            } else {
+                alert('Phantom Wallet not found!');
+            }
+        }
+
+        connectButton.addEventListener('click', connectWallet);
+    </script>
+</body>
+</html>

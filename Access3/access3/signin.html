@@ -1,0 +1,123 @@
+<!-- signin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+        </nav>
+    <div class="form-box">
+        <h2>Sign In</h2>
+        <form action="/signin" method="post">
+            <div class="form-group">
+                <label for="username"><i class="fas fa-user"></i> Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Sign In</button>
+        </form>
+        <p>already have an account? <a href="login.html">Login Up</a></p>
+    </div>
+</body>
+</html>
+
+<!-- styles.css -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+    .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+    .form-box {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    .btn {
+        width: 100%;
+        padding: 12px;
+        background: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .btn:hover {
+        background: #0056b3;
+    }
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+</style>

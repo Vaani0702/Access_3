@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .dashboard-container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .dashboard-container h2 {
+            color: #4a6bea;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: #4a6bea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #7e57c2;
+        }
+        .section {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .section h3 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+        </nav>
+    <div class="dashboard-container">
+        <h2>Employer Dashboard</h2>
+        
+        <div class="section">
+            <h3>Post a Job</h3>
+            <button class="btn" onclick="postJob()">Create Job Listing</button>
+        </div>
+        
+        <div class="section">
+            <h3>Browse Candidates</h3>
+            <button class="btn" onclick="browseCandidates()">View NFT Certificates & Resumes</button>
+        </div>
+        
+        <div class="section">
+            <h3>Shortlist & Interview</h3>
+            <button class="btn" onclick="scheduleInterview()">Schedule Interviews</button>
+        </div>
+        
+        <div class="section">
+            <h3>Smart Contract Jobs</h3>
+            <button class="btn" onclick="manageContracts()">Track & Approve Contracts</button>
+        </div>
+    </div>
+
+    <script>
+        function postJob() {
+            alert("Redirecting to Post Job page...");
+            window.location.href = "post-job.html";
+        }
+        function browseCandidates() {
+            alert("Redirecting to Candidates page...");
+            window.location.href = "candidates.html";
+        }
+        function scheduleInterview() {
+            alert("Redirecting to Interview Scheduling...");
+            window.location.href = "interview.html";
+        }
+        function manageContracts() {
+            alert("Redirecting to Smart Contracts page...");
+            window.location.href = "contracts.html";
+        }
+    </script>
+</body>
+</html>

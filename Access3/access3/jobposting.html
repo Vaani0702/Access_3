@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Posting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .form-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .form-box h2 {
+            color: #4a6bea;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .input-field {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-field i {
+            position: absolute;
+            left: 10px;
+            color: #666;
+        }
+        input, textarea {
+            width: 90%;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .btn {
+            width: 90%;
+            padding: 14px;
+            background: #4a6bea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #b616a1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+        </nav>
+    <div class="form-box">
+        <h2>Post a Job</h2>
+        <form id="jobForm">
+            <div class="form-group">
+                <label for="title"><i class="fas fa-briefcase"></i> Job Title</label>
+                <input type="text" id="title" placeholder="Job Title" required>
+            </div>
+            <div class="form-group">
+                <label for="description"><i class="fas fa-file-alt"></i> Job Description</label>
+                <textarea id="description" placeholder="Job Description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills"><i class="fas fa-tools"></i> Required Skills</label>
+                <input type="text" id="skills" placeholder="Required Skills" required>
+            </div>
+            <div class="form-group">
+                <label for="payment"><i class="fas fa-dollar-sign"></i> Payment (SOL)</label>
+                <input type="number" id="payment" placeholder="Payment (SOL)" step="0.01" required>
+            </div>
+            <button type="button" class="btn" id="connectBtn">Connect Wallet</button>
+            <button type="submit" class="btn">Post Job</button>
+        </form>
+    </div>
+    <script>
+        let walletAddress = "";
+
+        function connectWallet() {
+            if (window.solana && window.solana.isPhantom) {
+                window.solana.connect().then(response => {
+                    walletAddress = response.publicKey.toString();
+                    alert("Wallet Connected: " + walletAddress);
+                }).catch(() => {
+                    alert("Wallet Connection Failed");
+                });
+            } else {
+                alert("Phantom wallet not found");
+            }
+        }
+
+        document.getElementById("connectBtn").onclick = connectWallet;
+
+        document.getElementById("jobForm").onsubmit = async (e) => {
+            e.preventDefault();
+            if (!walletAddress) {
+                alert("Please connect your wallet first");
+                return;
+            }
+            const data = {
+                title: document.getElementById("title").value,
+                description: document.getElementById("description").value,
+                skills: document.getElementById("skills").value,
+                payment: document.getElementById("payment").value,
+                wallet: walletAddress,
+            };
+            try {
+                const response = await fetch('/api/post-job/', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                if (response.ok) {
+                    alert("Job posted successfully!");
+                    document.getElementById("jobForm").reset();
+                } else {
+                    alert("Failed to post job.");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Error posting job.");
+            }
+        };
+    </script>
+</body>
+</html>

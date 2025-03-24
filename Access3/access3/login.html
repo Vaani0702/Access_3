@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f7fb;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .form-box h2 {
+            color: #4a6bea;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-field {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-field i {
+            position: absolute;
+            left: 10px;
+            color: #666;
+        }
+        input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #4a6bea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #7e57c2;
+        }
+        .form-footer {
+            margin-top: 10px;
+        }
+        .form-footer a {
+            color: #4a6bea;
+            text-decoration: none;
+        }
+        <style>
+            /* Basic Styling */
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            body {
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+            }
+            .container {
+              text-align: center;
+              padding: 20px;
+              background-color: white;
+              border-radius: 15px;
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+              width: 300px;
+            }
+            #connect-btn {
+              padding: 10px 20px;
+              background-color: #4a90e2;
+              color: white;
+              border: none;
+              border-radius: 10px;
+              cursor: pointer;
+              font-size: 1.2rem;
+              margin-top: 10px;
+              transition: background-color 0.3s;
+            }
+            #connect-btn:hover {
+              background-color: #357ABD;
+            }
+            #status {
+              margin-top: 15px;
+              font-weight: bold;
+              font-size: 1rem;
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+        </nav>
+    <div class="form-box" id="login-box">
+        <h2>Login</h2>
+        <form id="login-form" action="/login" method="post">
+            <div class="form-group">
+                <label for="username-login">Username</label>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username-login" name="username" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password-login">Password</label>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password-login" name="password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="form-footer">
+                <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign up here</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-box" id="signup-box" style="display: none;">
+        <h2>Sign Up</h2>
+        <form id="signup-form" action="/signup" method="post">
+            <div class="form-group">
+                <label for="username-signup">Username</label>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username-signup" name="username" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password-signup">Password</label>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password-signup" name="password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="form-footer">
+                <p>Already have an account? <a href="#" onclick="toggleForms()">Login here</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const loginBox = document.getElementById('login-box');
+            const signupBox = document.getElementById('signup-box');
+            loginBox.style.display = loginBox.style.display === 'none' ? 'block' : 'none';
+            signupBox.style.display = signupBox.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+    <div class="container">
+        <h1>Solana Wallet Auth</h1>
+        <button id="connect-btn">Connect Wallet</button>
+        <p id="status">Wallet not connected</p>
+      </div>
+      
+    
+      <script>
+        // Select elements
+        const connectBtn = document.getElementById('connect-btn');
+        const status = document.getElementById('status');
+    
+        // Check if Phantom is installed
+        const isPhantomInstalled = () => {
+          return window.solana && window.solana.isPhantom;
+        };
+    
+        // Connect Wallet Function
+        const connectWallet = async () => {
+          if (!isPhantomInstalled()) {
+            alert("Phantom Wallet not found. Please install it.");
+            return;
+          }
+          try {
+            // Request wallet connection
+            const response = await window.solana.connect({ onlyIfTrusted: false });
+            status.textContent = `Connected: ${response.publicKey.toString()}`;
+            status.style.color = "green";
+          } catch (error) {
+            console.error(error);
+            status.textContent = "Connection failed. Try again.";
+            status.style.color = "red";
+          }
+        };
+    
+        // Track Wallet Disconnection
+        window.solana?.on('disconnect', () => {
+          status.textContent = "Wallet disconnected";
+          status.style.color = "red";
+        });
+    
+        // Button Click Event
+        connectBtn.addEventListener('click', connectWallet);
+      </script>
+</body>
+</html>
+ 

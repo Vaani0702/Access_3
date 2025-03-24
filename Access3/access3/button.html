@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solana Wallet Authentication</title>
+  <style>
+    /* Basic Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    #connect-btn {
+      padding: 10px 20px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+    #connect-btn:hover {
+      background-color: #357ABD;
+    }
+    #status {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Solana Wallet Auth</h1>
+    <button id="connect-btn">Connect Wallet</button>
+    <p id="status">Wallet not connected</p>
+  </div>
+
+  <script>
+    // Select elements
+    const connectBtn = document.getElementById('connect-btn');
+    const status = document.getElementById('status');
+
+    // Check if Phantom is installed
+    const isPhantomInstalled = () => {
+      return window.solana && window.solana.isPhantom;
+    };
+
+    // Connect Wallet Function
+    const connectWallet = async () => {
+      if (!isPhantomInstalled()) {
+        alert("Phantom Wallet not found. Please install it.");
+        return;
+      }
+      try {
+        // Request wallet connection
+        const response = await window.solana.connect({ onlyIfTrusted: false });
+        status.textContent = `Connected: ${response.publicKey.toString()}`;
+        status.style.color = "green";
+      } catch (error) {
+        console.error(error);
+        status.textContent = "Connection failed. Try again.";
+        status.style.color = "red";
+      }
+    };
+
+    // Track Wallet Disconnection
+    window.solana?.on('disconnect', () => {
+      status.textContent = "Wallet disconnected";
+      status.style.color = "red";
+    });
+
+    // Button Click Event
+    connectBtn.addEventListener('click', connectWallet);
+  </script>
+</body>
+</html>

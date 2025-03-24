@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .dashboard-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .dashboard-section {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .dashboard-section h2 {
+            color: #4a6bea;
+            margin-bottom: 10px;
+        }
+        .info-box {
+            background: #eef2ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a6bea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #7e57c2;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+        </nav>
+    <div class="dashboard-container">
+        <h1>User Dashboard</h1>
+        <div class="dashboard-section">
+            <h2>Profile Section</h2>
+            <div class="info-box">Name: </div>
+            <div class="info-box">Email: </div>
+            <div class="info-box">Wallet Address: </div>
+        </div>
+        <div class="dashboard-section">
+            <h2>AI-Recommended Courses</h2>
+            <div class="info-box">No recommended courses yet.</div>
+        </div>
+        <div class="dashboard-section">
+            <h2>My Progress</h2>
+            <div class="info-box">No courses started yet.</div>
+        </div>
+        <div class="dashboard-section">
+            <h2>My NFT Certificates</h2>
+            <div class="info-box">No certificates available.</div>
+        </div>
+        <button class="btn" id="connectBtn">Connect Wallet</button>
+    </div>
+    <script>
+        function connectWallet() {
+            if (window.solana && window.solana.isPhantom) {
+                window.solana.connect().then(response => {
+                    document.querySelector(".info-box:nth-child(3)").textContent = "Wallet Address: " + response.publicKey.toString();
+                    alert("Wallet Connected");
+                }).catch(() => {
+                    alert("Wallet Connection Failed");
+                });
+            } else {
+                alert("Phantom wallet not found");
+            }
+        }
+        document.getElementById("connectBtn").onclick = connectWallet;
+    </script>
+</body>
+</html>

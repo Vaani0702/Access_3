@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers Without Limits</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e96443, #904e95);
+            color: white;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 80px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 10px auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 20px;
+            background: #ffebf0;
+            color: #e96443;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #ffcad4;
+        }
+        .about, .web3, .call-to-action, .impact {
+            padding: 50px 20px;
+            background: white;
+            color: black;
+        }
+        .about h2, .web3 h2, .call-to-action h2, .impact h2 {
+            font-size: 2.5rem;
+        }
+        .about p, .web3 p, .call-to-action p, .impact p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 10px auto;
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+    </nav>
+    <div class="hero">
+        <h1>Empowering Disabled Talent</h1>
+        <p>Our platform provides AI-powered, accessible skill training for physically disabled individuals. 
+           They receive digital certificates recognized by employers, helping them secure remote jobs with fair pay.</p>
+        <a href="#about" class="btn">Learn More</a>
+    </div>
+    <div class="about" id="about">
+        <h2>About Our Platform</h2>
+        <p>Careers Without Limits is dedicated to creating an inclusive job market for people with physical disabilities. 
+           Through AI-driven personalized training, we ensure that every individual receives the skills they need to succeed. 
+           Our mission is to break down barriers and empower disabled professionals with job-ready expertise.</p>
+    </div>
+    <div class="web3">
+        <h2>How We Use Web3 & NFTs</h2>
+        <p>We leverage blockchain technology to issue NFT-backed certificates, ensuring authenticity and permanence. 
+           These digital certificates are stored on the Solana blockchain, making them tamper-proof and universally verifiable.</p>
+        <p>By integrating Web3, users can securely own their achievements and share them with employers worldwide. 
+           Employers can instantly verify credentials without the need for intermediaries, increasing trust in the hiring process.</p>
+    </div>
+    <div class="impact">
+        <h2>Why We Made This Project</h2>
+        <p>We believe that everyone, regardless of physical ability, deserves a chance to build a fulfilling career. 
+           This project was created to bridge the employment gap, empower disabled individuals with the right tools, 
+           and ensure equal opportunities in the digital workforce.</p>
+        <p>Our vision is a world where skills, not limitations, define a person’s potential.</p>
+    </div>
+    <div class="call-to-action">
+        <h2>Join Us Today</h2>
+        <p>Be part of an inclusive workforce and gain the skills you need to succeed. Start your journey now!</p>
+        <a href="signin.html" class="btn">Get Started</a>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 Careers Without Limits. All rights reserved.</p>
+    </div>
+    <script>
+        function connectWallet() {
+            alert("Phantom Wallet connection feature coming soon!");
+        }
+    </script>
+</body>
+</html>

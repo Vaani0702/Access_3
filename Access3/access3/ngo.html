@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGOs / Donors Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffebf0;
+        }
+        .dashboard {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .dashboard h2 {
+            color: #4a6bea;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #4a6bea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #7e57c2;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="landingpage.html">Careers Without Limits</a></div>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="signin.html">Sign Up</a>
+            <a href="userdashboard.html">User Dashboard</a>
+            <a href="employerdashboard.html">Employer Dashboard</a>
+            <a href="ngo.html">NGO/Donor</a>
+            <a href="joblisting.html">Job Listing</a>
+            <a href="jobposting.html">Job Posting</a>
+            <a href="AI-poweredcourserecommendation.html">AI Course Recommendations</a>
+            <a href="payment.html">Payment</a>
+            <a href="help.html">Help</a>
+            <a href="course.html">Course</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#" onclick="connectWallet()">Connect Phantom Wallet</a>
+            
+
+        </div>
+        </nav>
+    <div class="dashboard">
+        <h2>NGOs / Donors Dashboard</h2>
+        <button class="btn" onclick="browseCauses()">Browse Causes</button>
+        <button class="btn" onclick="makeDonation()">Make a Donation</button>
+        <button class="btn" onclick="trackImpact()">Impact Dashboard</button>
+        <button class="btn" onclick="voteInitiatives()">Vote on Initiatives</button>
+    </div>
+    <script>
+        function connectWallet() {
+            if (window.solana && window.solana.isPhantom) {
+                window.solana.connect().then(response => {
+                    alert("Wallet Connected: " + response.publicKey.toString());
+                }).catch(() => {
+                    alert("Wallet Connection Failed");
+                });
+            } else {
+                alert("Phantom wallet not found");
+            }
+        }
+
+        function browseCauses() {
+            alert("Browsing training programs and assistive tech needs...");
+        }
+        
+        function makeDonation() {
+            alert("Redirecting to donation page...");
+        }
+        
+        function trackImpact() {
+            alert("Tracking fund usage and success stories...");
+        }
+        
+        function voteInitiatives() {
+            alert("Participating in DAO governance...");
+        }
+    </script>
+</body>
+</html>
